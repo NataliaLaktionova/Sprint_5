@@ -4,66 +4,68 @@ from locators import locators
 from conftest import driver
 from personal_data import Personal_data
 
-# вход по кнопке «Войти в аккаунт» на главной
-def test_successful_login_to_account(driver):
-    wait = WebDriverWait(driver, 10)
-    wait.until(EC.element_to_be_clickable(locators["Button_Login_to_account"])).click()
+class Tests_Login:
 
-    email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
-    email_field.send_keys(Personal_data.email)
+    # вход по кнопке «Войти в аккаунт» на главной
+    def test_successful_login_to_account(self, driver):
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.element_to_be_clickable(locators["Button_Login_to_account"])).click()
 
-    password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
-    password_field.send_keys(Personal_data.password)
+        email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
+        email_field.send_keys(Personal_data.email)
 
-    login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
-    login_button.click()
-    assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url
+        password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
+        password_field.send_keys(Personal_data.password)
 
-# вход через кнопку «Личный кабинет»
-def test_successful_login_from_personal_cabinet(driver):
-    wait = WebDriverWait(driver, 10)
-    wait.until(EC.element_to_be_clickable(locators["Button_Personal_account"])).click()
+        login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
+        login_button.click()
+        assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url
 
-    email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
-    email_field.send_keys(Personal_data.email)
+    # вход через кнопку «Личный кабинет»
+    def test_successful_login_from_personal_cabinet(self, driver):
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.element_to_be_clickable(locators["Button_Personal_account"])).click()
 
-    password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
-    password_field.send_keys(Personal_data.password)
+        email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
+        email_field.send_keys(Personal_data.email)
 
-    login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
-    login_button.click()
-    assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url
+        password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
+        password_field.send_keys(Personal_data.password)
 
-# вход через кнопку в форме регистрации
-def test_successful_login_registration_form(driver):
-    wait = WebDriverWait(driver, 15)
-    wait.until(EC.element_to_be_clickable(locators["Button_Login_to_account"])).click()
-    wait.until(EC.element_to_be_clickable(locators["Button_Register"])).click()
-    wait.until(EC.element_to_be_clickable(locators["Button_Login_in_registration"])).click()
+        login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
+        login_button.click()
+        assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url
 
-    email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
-    email_field.send_keys(Personal_data.email)
+    # вход через кнопку в форме регистрации
+    def test_successful_login_registration_form(self, driver):
+        wait = WebDriverWait(driver, 15)
+        wait.until(EC.element_to_be_clickable(locators["Button_Login_to_account"])).click()
+        wait.until(EC.element_to_be_clickable(locators["Button_Register"])).click()
+        wait.until(EC.element_to_be_clickable(locators["Button_Login_in_registration"])).click()
 
-    password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
-    password_field.send_keys(Personal_data.password)
+        email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
+        email_field.send_keys(Personal_data.email)
 
-    login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
-    login_button.click()
-    assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url
+        password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
+        password_field.send_keys(Personal_data.password)
 
-# вход через кнопку в форме восстановления пароля
-def test_successful_login_password_reset_form(driver):
-    wait = WebDriverWait(driver, 10)
-    wait.until(EC.element_to_be_clickable(locators["Button_Login_to_account"])).click()
-    wait.until(EC.element_to_be_clickable(locators["Button_Reset_Password"])).click()
-    wait.until(EC.element_to_be_clickable(locators["Button_Login_in_registration"])).click()
+        login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
+        login_button.click()
+        assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url
 
-    email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
-    email_field.send_keys(Personal_data.email)
+    # вход через кнопку в форме восстановления пароля
+    def test_successful_login_password_reset_form(self, driver):
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.element_to_be_clickable(locators["Button_Login_to_account"])).click()
+        wait.until(EC.element_to_be_clickable(locators["Button_Reset_Password"])).click()
+        wait.until(EC.element_to_be_clickable(locators["Button_Login_in_registration"])).click()
 
-    password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
-    password_field.send_keys(Personal_data.password)
+        email_field = wait.until(EC.presence_of_element_located(locators["Field_Name"]))
+        email_field.send_keys(Personal_data.email)
 
-    login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
-    login_button.click()
-    assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url
+        password_field = wait.until(EC.presence_of_element_located(locators["Field_Password"]))
+        password_field.send_keys(Personal_data.password)
+
+        login_button = wait.until(EC.element_to_be_clickable(locators["Button_Login"]))
+        login_button.click()
+        assert 'https://stellarburgers.nomoreparties.site/' in driver.current_url

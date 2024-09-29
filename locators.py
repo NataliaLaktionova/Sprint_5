@@ -20,4 +20,5 @@ locators = {
     "Title_Buns": (By.XPATH, "//h2[text()='Булки']"),  # заголовок Булки в блоке
     "Title_Sauces": (By.XPATH, "//h2[text()='Соусы']"),  # заголовок Соусы в блоке
     "Title_Stuffings": (By.XPATH, "//h2[text()='Начинки']"),  # заголовок Начинки в блоке
+    "Error_message": (By.XPATH, "//p[contains(text(), 'Некорректный пароль')]"),
 }

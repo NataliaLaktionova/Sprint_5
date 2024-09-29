@@ -5,6 +5,7 @@ from conftest import driver
 from personal_data import Personal_data
 
 def test_logout(driver):
+
     wait = WebDriverWait(driver, 15)
     wait.until(EC.element_to_be_clickable(locators["Button_Login_to_account"])).click()
 
